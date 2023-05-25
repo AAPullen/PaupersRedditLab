@@ -1,0 +1,18 @@
+<div *ngFor="let item of posts">
+
+    <div *ngIf="item.data.is_video">
+        <h5>{{item.data.title}}</h5>
+        <video
+        src={{item.data.media.reddit_video.fallback_url}}
+        controls
+        autoplay
+        ></video> 
+        <a href="{{'https://www.reddit.com' + item.data.permalink}}">reddit</a>
+    </div>
+
+    <div *ngIf="!item.data.is_video">
+        <h5>{{item.data.title}}</h5>
+        <img src={{item.data.url}} alt="">
+        <a href="{{'https://www.reddit.com' + item.data.permalink}}">reddit</a>
+    </div>
+</div>
